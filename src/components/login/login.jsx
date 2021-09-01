@@ -6,24 +6,25 @@ import styles from './login.module.css';
 
 const Login = ({ authService }) => {
   const history = useHistory();
-  const goToMaker = (userId) => {
+  const goToMaker = userId => {
     history.push({
       pathname: '/maker',
       state: { id: userId },
     });
   };
-  const onLogin = (e) => {
+
+  const onLogin = event => {
     authService //
-      .login(e.currentTarget.textContent)
-      .then((data) => goToMaker(data.user.uid));
+      .login(event.currentTarget.textContent)
+      .then(data => goToMaker(data.user.uid));
   };
 
   useEffect(() => {
-    authService //
-      .onAuthChange((user) => {
-        user && goToMaker(user.uid);
-      });
-  }, []);
+    authService.onAuthChange(user => {
+      user && goToMaker(user.id);
+    });
+  });
+
   return (
     <section className={styles.login}>
       <Header />

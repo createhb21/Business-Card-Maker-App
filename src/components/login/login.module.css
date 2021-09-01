@@ -1,4 +1,4 @@
-@value makerWhite, makerGreen, makerLightPink from '../../common/colors.css';
+@value makerGreen, makerLightPink, makerWhite from '../../common/colors.css';
 
 .login {
   width: 30em;
@@ -16,6 +16,7 @@
   list-style: none;
   padding: 0.5rem;
 }
+
 .item {
   margin-bottom: 0.5em;
 }

@@ -12,15 +12,14 @@ const CardAddForm = ({ FileInput, onAdd }) => {
   const messageRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileURL: null });
 
-  const onFileChange = file => {
-    console.log(file);
+  const onFileChange = (file) => {
     setFile({
       fileName: file.name,
       fileURL: file.url,
     });
   };
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     const card = {
       id: Date.now(), //uuid
